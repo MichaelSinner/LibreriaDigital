@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LibreriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cotizacion">
+          <Key>
+            <PropertyRef Name="idCotizacion" />
+          </Key>
+          <Property Name="idCotizacion" Type="int" Nullable="false" />
+          <Property Name="FechaCotizacion" Type="date" Nullable="false" />
+          <Property Name="Clientes_idClientes" Type="int" Nullable="false" />
+          <Property Name="Producto_idProducto" Type="int" Nullable="false" />
+          <Property Name="PrecioCotizacion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="Nickname" />
+          </Key>
+          <Property Name="Nickname" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Clientes_idClientes" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="idProducto" />
+          </Key>
+          <Property Name="idProducto" Type="int" Nullable="false" />
+          <Property Name="NombreProducto" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="TipoProducto" Type="int" Nullable="false" />
+          <Property Name="EditorialProducto" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="ISBNProducto" Type="varchar" MaxLength="30" />
+          <Property Name="AutorProducto" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PrecioProducto" Type="int" Nullable="false" />
+          <Property Name="PrecioDescProducto" Type="int" Nullable="false" />
+          <Property Name="Idioma" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Paginas" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tipoUsuario">
+          <Key>
+            <PropertyRef Name="TipoUsuario" />
+          </Key>
+          <Property Name="TipoUsuario" Type="int" Nullable="false" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="idLogin" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="int" Nullable="false" />
+          <Property Name="tipoUsuario" Type="int" Nullable="false" />
+          <Property Name="NombreUsuario" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ApellidoUsuario" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="DireccionUsuario" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="CiudadUsuario" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NumeroCuentaUsuario" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="LibreriaModelStoreContainer">
+          <EntitySet Name="Cotizacion" EntityType="Self.Cotizacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoUsuario" EntityType="Self.tipoUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LibreriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cotizacion">
+          <Key>
+            <PropertyRef Name="idCotizacion" />
+          </Key>
+          <Property Name="idCotizacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaCotizacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Clientes_idClientes" Type="Int32" Nullable="false" />
+          <Property Name="Producto_idProducto" Type="Int32" Nullable="false" />
+          <Property Name="PrecioCotizacion" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="Nickname" />
+          </Key>
+          <Property Name="Nickname" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Clientes_idClientes" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="idProducto" />
+          </Key>
+          <Property Name="idProducto" Type="Int32" Nullable="false" />
+          <Property Name="NombreProducto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipoProducto" Type="Int32" Nullable="false" />
+          <Property Name="EditorialProducto" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISBNProducto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AutorProducto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PrecioProducto" Type="Int32" Nullable="false" />
+          <Property Name="PrecioDescProducto" Type="Int32" Nullable="false" />
+          <Property Name="Idioma" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Paginas" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tipoUsuario">
+          <Key>
+            <PropertyRef Name="TipoUsuario1" />
+          </Key>
+          <Property Name="TipoUsuario1" Type="Int32" Nullable="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idLogin" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="tipoUsuario" Type="Int32" Nullable="false" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApellidoUsuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DireccionUsuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CiudadUsuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumeroCuentaUsuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="LibreriaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cotizacions" EntityType="Self.Cotizacion" />
+          <EntitySet Name="logins" EntityType="Self.login" />
+          <EntitySet Name="Productoes" EntityType="Self.Producto" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tipoUsuarios" EntityType="Self.tipoUsuario" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LibreriaModelStoreContainer" CdmEntityContainer="LibreriaEntities">
+          <EntitySetMapping Name="Cotizacions">
+            <EntityTypeMapping TypeName="LibreriaModel.Cotizacion">
+              <MappingFragment StoreEntitySet="Cotizacion">
+                <ScalarProperty Name="idCotizacion" ColumnName="idCotizacion" />
+                <ScalarProperty Name="FechaCotizacion" ColumnName="FechaCotizacion" />
+                <ScalarProperty Name="Clientes_idClientes" ColumnName="Clientes_idClientes" />
+                <ScalarProperty Name="Producto_idProducto" ColumnName="Producto_idProducto" />
+                <ScalarProperty Name="PrecioCotizacion" ColumnName="PrecioCotizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="logins">
+            <EntityTypeMapping TypeName="LibreriaModel.login">
+              <MappingFragment StoreEntitySet="login">
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Clientes_idClientes" ColumnName="Clientes_idClientes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productoes">
+            <EntityTypeMapping TypeName="LibreriaModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="TipoProducto" ColumnName="TipoProducto" />
+                <ScalarProperty Name="EditorialProducto" ColumnName="EditorialProducto" />
+                <ScalarProperty Name="ISBNProducto" ColumnName="ISBNProducto" />
+                <ScalarProperty Name="AutorProducto" ColumnName="AutorProducto" />
+                <ScalarProperty Name="PrecioProducto" ColumnName="PrecioProducto" />
+                <ScalarProperty Name="PrecioDescProducto" ColumnName="PrecioDescProducto" />
+                <ScalarProperty Name="Idioma" ColumnName="Idioma" />
+                <ScalarProperty Name="Paginas" ColumnName="Paginas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="LibreriaModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoUsuarios">
+            <EntityTypeMapping TypeName="LibreriaModel.tipoUsuario">
+              <MappingFragment StoreEntitySet="tipoUsuario">
+                <ScalarProperty Name="TipoUsuario1" ColumnName="TipoUsuario" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="idLogin" ColumnName="idLogin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="LibreriaModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="tipoUsuario" ColumnName="tipoUsuario" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="ApellidoUsuario" ColumnName="ApellidoUsuario" />
+                <ScalarProperty Name="DireccionUsuario" ColumnName="DireccionUsuario" />
+                <ScalarProperty Name="CiudadUsuario" ColumnName="CiudadUsuario" />
+                <ScalarProperty Name="NumeroCuentaUsuario" ColumnName="NumeroCuentaUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

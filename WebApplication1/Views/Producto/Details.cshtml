@@ -1,0 +1,90 @@
+﻿@model WebApplication1.Models.Producto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EditorialProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EditorialProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISBNProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISBNProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AutorProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AutorProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioDescProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioDescProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Idioma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Idioma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paginas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paginas)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idProducto }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

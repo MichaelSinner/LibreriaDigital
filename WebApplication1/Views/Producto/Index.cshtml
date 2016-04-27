@@ -1,0 +1,91 @@
+﻿@model IEnumerable<WebApplication1.Models.Producto>
+
+@{
+    ViewBag.Title = "Lista de Productos";
+}
+
+<h2>Productos</h2>
+
+<p>
+    @Html.ActionLink("Ingresar nuevo Producto", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.NombreProducto)*@
+            Nombre
+
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.TipoProducto)*@
+            Tipo de Producto
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.EditorialProducto)*@
+            Editorial
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.ISBNProducto)*@
+            ISBN
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.AutorProducto)*@
+            Autor(es)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.PrecioProducto)*@
+            Precio
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.PrecioDescProducto)*@
+            Precio Descuento
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Idioma)*@
+            Idioma
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Paginas)*@
+            Paginas
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EditorialProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ISBNProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AutorProducto)
+        </td>
+        <td>
+            $@Html.DisplayFor(modelItem => item.PrecioProducto)
+        </td>
+        <td>
+            $@Html.DisplayFor(modelItem => item.PrecioDescProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Idioma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paginas)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idProducto }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idProducto }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idProducto })
+        </td>
+    </tr>
+}
+
+</table>
